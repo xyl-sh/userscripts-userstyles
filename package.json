@@ -1,0 +1,38 @@
+{
+	"name": "userscripts-userstyles",
+	"type": "module",
+	"scripts": {
+		"prepare": "husky"
+	},
+	"lint-staged": {
+		"**/*.js": [
+			"eslint --fix",
+			"prettier --write --ignore-unknown"
+		],
+		"**/*.less": [
+			"stylelint --fix",
+			"prettier --write --ignore-unknown"
+		]
+	},
+	"dependencies": {
+		"@eslint/eslintrc": "^3.2.0",
+		"@eslint/js": "^9.17.0",
+		"bunx": "^0.1.0",
+		"eslint-config-airbnb": "^19.0.4",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-userscripts": "^0.5.6",
+		"globals": "^15.14.0",
+		"stylelint": "^16.12.0"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"eslint": "^9.17.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^15.2.11",
+		"prettier": "3.4.2",
+		"stylelint-config-clean-order": "^6.1.0",
+		"stylelint-config-standard": "^36.0.1",
+		"stylelint-config-standard-less": "^3.0.1",
+		"stylelint-less": "^3.0.1"
+	}
+}

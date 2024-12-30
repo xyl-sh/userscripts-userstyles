@@ -1,0 +1,65 @@
+/* ==UserStyle==
+@name           YouTube Show More Items
+@description    Adds more columns to YouTube feeds.
+@version        1.0.0
+@author         Xyl
+@namespace      xyl
+@preprocessor   less
+@var            number additional "Additional columns" 4
+==/UserStyle== */
+
+/* stylelint-disable-next-line at-rule-no-vendor-prefix */
+@-moz-document domain("youtube.com") {
+	@total: calc(var(--ytd-rich-grid-items-per-row) + @additional);
+
+	ytd-rich-grid-renderer {
+		#contents.ytd-rich-grid-renderer {
+			display: grid;
+			grid-template-columns: repeat(@total, minmax(0, 1fr));
+			gap: var(--ytd-rich-grid-item-margin);
+		}
+
+		ytd-rich-item-renderer,
+		ytd-rich-item-renderer[is-shorts-grid][is-slim-media] {
+			width: unset !important;
+			margin: unset !important;
+			margin-bottom: calc(
+				(40px / @total) * var(--ytd-rich-grid-items-per-row)
+			) !important;
+		}
+
+		#avatar-link,
+		#avatar-container {
+			display: none;
+		}
+	}
+
+	ytd-two-column-browse-results-renderer:not([page-subtype="channels"])
+		ytd-rich-grid-renderer {
+		margin: 0 24px;
+	}
+
+	ytd-rich-grid-row,
+	ytd-rich-grid-row #contents.ytd-rich-grid-row {
+		display: contents;
+	}
+
+	#contents > ytd-rich-section-renderer,
+	ytd-ghost-grid-renderer .channel-avatar.ytd-ghost-grid-renderer,
+	ytd-continuation-item-renderer #ghost-cards {
+		display: none;
+	}
+
+	ytd-continuation-item-renderer {
+		justify-content: center;
+	}
+
+	ytd-two-column-browse-results-renderer[page-subtype="home"]
+		#chips-content.ytd-feed-filter-chip-bar-renderer {
+		padding: unset;
+	}
+
+	#dismissed {
+		height: 100%;
+	}
+}
