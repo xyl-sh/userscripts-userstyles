@@ -5,7 +5,7 @@
 // @icon         https://cozy.tv/favicon.ico
 // @license      AGPL-3.0-or-later
 // @namespace    xyl
-// @version      1.0.0
+// @version      1.0.1
 // @run-at       document-start
 // @match        https://cozy.tv/*
 // @match        https://rumble.com/chat/*
@@ -266,7 +266,7 @@ function onRumbleChannelResponse(data, channel) {
 	const template = document.createElement("template");
 	template.innerHTML = data.response;
 	const link = template.content.querySelector(
-		".videostream:not(:has(videostream__time)) a",
+		".videostream:not(:has(.videostream__time)) a",
 	);
 
 	if (!link) {
