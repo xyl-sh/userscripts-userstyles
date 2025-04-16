@@ -1,0 +1,58 @@
+/* ==UserStyle==
+@name           News Corp Australia AMP Fix
+@description    Resizes elements on News Corp AU AMP pages, so that you can fulfil your moral duty of bypassing their paywalls without sacrificing readability.
+@version        1.0.0
+@author         Xyl
+@namespace      xyl
+@preprocessor   less
+==/UserStyle== */
+
+/* stylelint-disable selector-class-pattern */
+/* stylelint-disable-next-line at-rule-no-vendor-prefix */
+@-moz-document domain("adelaidenow.com.au"), domain("cairnspost.com.au"), domain("codesports.com.au"), domain("couriermail.com.au"), domain("dailytelegraph.com.au"), domain("geelongadvertiser.com.au"), domain("goldcoastbulletin.com.au"), domain("heraldsun.com.au"), domain("theaustralian.com.au"), domain("thechronicle.com.au"), domain("themercury.com.au"), domain("townsvillebulletin.com.au"), domain("weeklytimesnow.com.au") {
+	.amp {
+		.responsive-img amp-img {
+			height: 20vh;
+
+			img {
+				width: auto;
+				min-width: unset;
+				height: 100%;
+			}
+		}
+
+		amp-iframe {
+			height: 20vh;
+		}
+
+		i-amphtml-sizer {
+			padding: unset !important;
+		}
+
+		amp-sidebar ~ *,
+		.more-coverage-v2 {
+			float: unset;
+			max-width: 800px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		.g_wrapper {
+			width: unset;
+		}
+	}
+}
+
+/* stylelint-disable-next-line at-rule-no-vendor-prefix */
+@-moz-document regexp("https?://resourcesssl\.newscdn\.com\.au.*#amp=1$")
+{
+	#video {
+		.videoWrapper {
+			padding-top: 100vh;
+		}
+
+		.rp-pause-state {
+			padding-top: 0.75rem;
+		}
+	}
+}
