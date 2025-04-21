@@ -1,9 +1,9 @@
 /* ==UserStyle==
 @name           News Corp Australia AMP Fix
-@description    Resizes elements on News Corp AU AMP pages, so that you can fulfil your moral duty of bypassing their paywalls without sacrificing readability.
-@version        1.0.0
-@author         Xyl
-@namespace      xyl
+@description	Resizes elements on News Corp AU AMP pages, so that you can fulfil your moral duty of bypassing their paywalls without sacrificing readability.
+@version		1.0.0
+@author		    Xyl
+@namespace	    xyl
 @preprocessor   less
 ==/UserStyle== */
 
@@ -11,22 +11,20 @@
 /* stylelint-disable-next-line at-rule-no-vendor-prefix */
 @-moz-document domain("adelaidenow.com.au"), domain("cairnspost.com.au"), domain("codesports.com.au"), domain("couriermail.com.au"), domain("dailytelegraph.com.au"), domain("geelongadvertiser.com.au"), domain("goldcoastbulletin.com.au"), domain("heraldsun.com.au"), domain("theaustralian.com.au"), domain("thechronicle.com.au"), domain("themercury.com.au"), domain("townsvillebulletin.com.au"), domain("weeklytimesnow.com.au") {
 	.amp {
-		.responsive-img amp-img {
-			height: 20vh;
+		amp-img,
+		amp-iframe {
+			aspect-ratio: 16/9;
 
-			img {
+			&.i-amphtml-layout-responsive img {
 				width: auto;
 				min-width: unset;
 				height: 100%;
+				object-fit: cover;
 			}
-		}
 
-		amp-iframe {
-			height: 20vh;
-		}
-
-		i-amphtml-sizer {
-			padding: unset !important;
+			i-amphtml-sizer {
+				padding: unset !important;
+			}
 		}
 
 		amp-sidebar ~ *,
@@ -40,6 +38,10 @@
 		.g_wrapper {
 			width: unset;
 		}
+
+		.amp-placeholder {
+			display: none;
+		}
 	}
 }
 
@@ -49,10 +51,6 @@
 	#video {
 		.videoWrapper {
 			padding-top: 100vh;
-		}
-
-		.rp-pause-state {
-			padding-top: 0.75rem;
 		}
 	}
 }
